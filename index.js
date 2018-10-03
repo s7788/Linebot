@@ -12,21 +12,33 @@ var bot = linebot({
 bot.on("message", function(event) {
   var userId = event.source.userId;
   var msg = event.message.text;
-  if ((event.message.type = "text")) 
-  {
-    //收到文字訊息時，直接把收到的訊息傳回去
-    event
-      .reply("林都市條豬__")
-      .then(function(data) {
-        // 傳送訊息成功時，可在此寫程式碼
-        console.log(msg);
-        console.log("UserId = " + userId);
-        //console.log("林都市條豬");
-      })
-      .catch(function(error) {
-        // 傳送訊息失敗時，可在此寫程式碼
-        console.log("錯誤產生，錯誤碼：" + error);
-      });
+  if ((event.message.type = "text")) {
+    switch (event.message.text) {
+      case "林都":
+        //收到文字訊息時，直接把收到的訊息傳回去
+        event
+          .reply("林都市條豬__")
+          .then(function(data) {
+            // 傳送訊息成功時，可在此寫程式碼
+            console.log(msg);
+            console.log("UserId = " + userId);
+            //console.log("林都市條豬");
+          })
+          .catch(function(error) {
+            // 傳送訊息失敗時，可在此寫程式碼
+            console.log("錯誤產生，錯誤碼：" + error);
+          });
+        break;
+      case "A":
+        event.source.profile().then(function(profile) {
+          return event.reply(
+            "Hello " + profile.displayName + " " + profile.userId
+          );
+        });
+        break;
+      case "B":
+        break;
+    }
   }
 });
 
