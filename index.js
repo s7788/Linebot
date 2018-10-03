@@ -35,13 +35,7 @@ bot.on("message", function(event) {
       case "姪子":
         event.reply(event.message.text + "是猴子");
         break;
-      case "你好":
-      case "Hello":
-      case "hello":
-      case "HELLO":
-      case "Hi":
-      case "hi":
-      case "HI" , "AAA":
+      case "HI" , "hi" , "Hi" , "HELLO" , "hello" , "Hello" , "你好":
         event.source.profile().then(function(profile) {
           return event.reply(
             event.message.text + " " + profile.displayName //+ " " + profile.userId
