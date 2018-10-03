@@ -13,7 +13,7 @@ bot.on("message", function(event) {
   var userId = event.source.userId;
   var msg = event.message.text;
   event.source.profile().then(function(profile) {
-    UserName = rofile.displayName;
+    UserName = profile.displayName;
   });
   if ((event.message.type = "text")) {
     switch (event.message.text) {
