@@ -26,6 +26,7 @@ bot.on("message", function(event) {
             // 傳送訊息成功時，可在此寫程式碼
             console.log(msg);
             console.log("UserId = " + userId);
+            console.log("UserName = " + profile.displayName);
           })
           .catch(function(error) {
             // 傳送訊息失敗時，可在此寫程式碼
@@ -34,6 +35,7 @@ bot.on("message", function(event) {
         break;
       case "姪子":
         event.reply(event.message.text + "是猴子");
+        console.log("UserName = " + profile.displayName);
         break;
       case "你好":
       case "Hello":
@@ -55,6 +57,7 @@ bot.on("message", function(event) {
           return event.reply(
             "你說啥 " //+ " " + profile.userId
           );
+          console.log("UserName = " + profile.displayName);
         });
     }
   }
