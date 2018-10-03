@@ -40,12 +40,14 @@ bot.on("message", function(event) {
         break;
       case "B":
         break;
+        /*
       default:
       event.source.profile().then(function(profile) {
         return event.reply(
           "你說啥 " //+ " " + profile.userId
         );
       });
+      */
     }
   }
 });
