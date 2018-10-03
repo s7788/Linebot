@@ -26,7 +26,7 @@ bot.on('message', function(event) {
 });
 
 setTimeout(function(){
-    var userId = 's850762001';
+    var userId = 'U9ffbb6488e43aa1da8084065f3d62cf1';
     var sendMsg = '要發送的文字';
     bot.push(userId,sendMsg);
     console.log('send: '+sendMsg);
