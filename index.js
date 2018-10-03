@@ -41,7 +41,7 @@ bot.on("message", function(event) {
       case "HELLO":
       case "Hi":
       case "hi":
-      case "HI":
+      case "HI" , "AAA":
         event.source.profile().then(function(profile) {
           return event.reply(
             event.message.text + " " + profile.displayName //+ " " + profile.userId
