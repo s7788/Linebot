@@ -14,7 +14,11 @@ bot.on("message", function(event) {
   var msg = event.message.text;
   if ((event.message.type = "text")) {
     switch (event.message.text) {
-      case "林都" || "林嘟" || "寧嘟" || "阿嘟" || "嘟嘟" :
+        case "嘟嘟" :
+        case "阿嘟" :
+        case "寧嘟" :
+        case "林嘟" :
+      case "林都" :
         //收到文字訊息時，直接把收到的訊息傳回去
         event
           .reply(event.message.text + "是條豬喔")
@@ -31,7 +35,13 @@ bot.on("message", function(event) {
       case "姪子":
         event.reply(event.message.text + "是猴子");
         break;
-      case "HI" || "hi" || "Hi" || "HELLO" || "hello" || "Hello" || "你好" :
+        case "你好" :
+        case "Hello":
+        case "hello":
+        case "HELLO":
+        case  "Hi":
+        case "hi":
+      case "HI":
         event.source.profile().then(function(profile) {
           return event.reply(
             event.message.text + " " + profile.displayName //+ " " + profile.userId
