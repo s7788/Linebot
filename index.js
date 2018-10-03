@@ -14,25 +14,28 @@ bot.on("message", function(event) {
   var msg = event.message.text;
   if ((event.message.type = "text")) {
     switch (event.message.text) {
-      case "林都":
+      case "林都","林嘟","寧嘟","阿嘟","嘟嘟":
         //收到文字訊息時，直接把收到的訊息傳回去
         event
-          .reply("林都市條豬__")
+          .reply(event.message.text + "是條豬喔")
           .then(function(data) {
             // 傳送訊息成功時，可在此寫程式碼
             console.log(msg);
             console.log("UserId = " + userId);
-            //console.log("林都市條豬");
           })
           .catch(function(error) {
             // 傳送訊息失敗時，可在此寫程式碼
             console.log("錯誤產生，錯誤碼：" + error);
           });
         break;
+        case "姪子" :
+        event
+          .reply(event.message.text + "是猴子")
+        break;
       case "A":
         event.source.profile().then(function(profile) {
           return event.reply(
-            "Hello " + profile.displayName + " " + profile.userId
+            "Hello " + profile.displayName //+ " " + profile.userId
           );
         });
         break;
@@ -42,13 +45,14 @@ bot.on("message", function(event) {
   }
 });
 
+/*
 setTimeout(function() {
   var userId = "U9ffbb6488e43aa1da8084065f3d62cf1";
   var sendMsg = "要發送的文字";
   bot.push(userId, sendMsg);
   console.log("send: " + sendMsg);
 }, 5000);
-
+*/
 const app = express();
 const linebotParser = bot.parser();
 app.post("/", linebotParser);
