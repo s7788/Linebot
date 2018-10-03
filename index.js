@@ -11,37 +11,9 @@ var bot = linebot({
 //這一段的程式是專門處理當有人傳送文字訊息給LineBot時，我們的處理回應
 bot.on("message", function(event) {
   var userId = event.source.userId;
-    var msg = event.message.text;
+  var msg = event.message.text;
   if ((event.message.type = "text")) 
   {
-    switch (event.message.text) {
-        case 'A':
-            event.source.profile().then(function (profile) {
-            return event.reply('AAAAAA ' + profile.displayName + ' ' + profile.userId);
-        });
-        /*
-            let data;
-            rp(aqiOpt)
-            .then(function (repos) {
-                data = readAQI(repos);
-                event.reply(data.County + data.SiteName +
-                '\n\nPM2.5指數：'+ data["PM2.5_AVG"] + 
-                '\n狀態：' + data.Status);
-            })
-            .catch(function (err) {
-                event.reply('無法取得空氣品質資料～');
-            });
-            */
-            break;
-
-        case 'B':
-            event.source.profile().then(function (profile) {
-                return event.reply('Hello ' + profile.displayName + ' ' + profile.userId);
-            });
-            break;
-    }
-    break;
-      /*
     //收到文字訊息時，直接把收到的訊息傳回去
     event
       .reply("林都市條豬__")
@@ -55,7 +27,6 @@ bot.on("message", function(event) {
         // 傳送訊息失敗時，可在此寫程式碼
         console.log("錯誤產生，錯誤碼：" + error);
       });
-      */
   }
 });
 
