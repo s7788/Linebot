@@ -7,11 +7,14 @@ var bot = linebot({
   channelAccessToken:
     "6We1ZNjErd3nG++Rj3UbXHC6Lr30PqTo8a7i1OR+hWf7xqfu/OLpm2ghz5TpSxMjzVQ1qfM33FsxMP/6oP7lST6KhtgCQFSbZWnwnL/zTFoeuprpCgFPDRHo6fehA463oXWmyb8EwhK9MG8x2UTA7wdB04t89/1O/w1cDnyilFU="
 });
-
+var UserName = "";
 //這一段的程式是專門處理當有人傳送文字訊息給LineBot時，我們的處理回應
 bot.on("message", function(event) {
   var userId = event.source.userId;
   var msg = event.message.text;
+  event.source.profile().then(function(profile) {
+    UserName = rofile.displayName;
+  });
   if ((event.message.type = "text")) {
     switch (event.message.text) {
       case "嘟嘟":
@@ -24,9 +27,8 @@ bot.on("message", function(event) {
           .reply(event.message.text + "是條豬喔")
           .then(function(data) {
             // 傳送訊息成功時，可在此寫程式碼
-            console.log(msg);
+            //console.log(msg);
             console.log("UserId = " + userId);
-            console.log("UserName = " + profile.displayName);
           })
           .catch(function(error) {
             // 傳送訊息失敗時，可在此寫程式碼
@@ -35,7 +37,6 @@ bot.on("message", function(event) {
         break;
       case "姪子":
         event.reply(event.message.text + "是猴子");
-        console.log("UserName = " + profile.displayName);
         break;
       case "你好":
       case "Hello":
@@ -57,9 +58,9 @@ bot.on("message", function(event) {
           return event.reply(
             "你說啥 " //+ " " + profile.userId
           );
-          console.log("UserName = " + profile.displayName);
         });
     }
+    console.log("UserName = " + UserName);
   }
 });
 
