@@ -51,6 +51,7 @@ bot.on("message", function(event) {
       case "Hi":
       case "hi":
       case "HI":
+      console.log(12);
         event.source.profile().then(function(profile) {
           return event.reply(
             event.message.text + " " + profile.displayName //+ " " + profile.userId
@@ -60,8 +61,10 @@ bot.on("message", function(event) {
       case "B":
         break;
       default:
+      console.log(2);
         event.source.profile().then(function(profile) {
           return event.reply(
+            
             "你說啥 " //+ " " + profile.userId
           );
         });
