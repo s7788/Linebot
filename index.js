@@ -34,7 +34,7 @@ bot.on("message", function(event) {
           .then(function(data) {
             // 傳送訊息成功時，可在此寫程式碼
             //console.log(msg);
-            console.log("UserId = " + userId);
+            console.log("UserId = " + event.message.text);
           })
           .catch(function(error) {
             // 傳送訊息失敗時，可在此寫程式碼
