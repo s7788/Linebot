@@ -54,15 +54,11 @@ bot.on("message", function(event) {
       case "B":
         break;
       default:
-        if (1 = 1) {
-            event.reply("包含ABC");
-        } else {
           event.source.profile().then(function(profile) {
             return event.reply(
               "你說啥 " //+ " " + profile.userId
             );
           });
-        }
     }
     console.log("UserName = " + UserName);
   }
