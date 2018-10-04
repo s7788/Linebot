@@ -14,6 +14,9 @@ bot.on("message", function(event) {
   var msg = event.message.text;
   event.source.profile().then(function(profile) {
     UserName = profile.displayName;
+    console.log("1");
+    console.log(profile.displayName);
+    console.log(UserName);
   });
   if ((event.message.type = "text")) {
     switch (event.message.text) {
