@@ -50,6 +50,9 @@ bot.on("message", function(event) {
         break;
       case "B":
         break;
+        case (event.message.text).match('ABC') :
+        event.reply("包含ABC");
+        break;
       default:
         event.source.profile().then(function(profile) {
           return event.reply(
