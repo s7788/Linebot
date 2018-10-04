@@ -7,16 +7,13 @@ var bot = linebot({
   channelAccessToken:
     "6We1ZNjErd3nG++Rj3UbXHC6Lr30PqTo8a7i1OR+hWf7xqfu/OLpm2ghz5TpSxMjzVQ1qfM33FsxMP/6oP7lST6KhtgCQFSbZWnwnL/zTFoeuprpCgFPDRHo6fehA463oXWmyb8EwhK9MG8x2UTA7wdB04t89/1O/w1cDnyilFU="
 });
-var UserName = "";
+
 //這一段的程式是專門處理當有人傳送文字訊息給LineBot時，我們的處理回應
 bot.on("message", function(event) {
   var userId = event.source.userId;
   var msg = event.message.text;
-  event.source.profile().then(function(profile) {
-    UserName = profile.displayName;
-  });
   if ((event.message.type = "text")) {
-    switch (msg) {
+    switch (event.message.text) {
       case "嘟嘟":
       case "阿嘟":
       case "寧嘟":
@@ -24,10 +21,10 @@ bot.on("message", function(event) {
       case "林都":
         //收到文字訊息時，直接把收到的訊息傳回去
         event
-          .reply(msg + "是條豬喔")
+          .reply(event.message.text + "是條豬喔")
           .then(function(data) {
             // 傳送訊息成功時，可在此寫程式碼
-            //console.log(msg);
+            console.log(msg);
             console.log("UserId = " + userId);
           })
           .catch(function(error) {
@@ -36,7 +33,7 @@ bot.on("message", function(event) {
           });
         break;
       case "姪子":
-        event.reply(msg + "是猴子");
+        event.reply(event.message.text + "是猴子");
         break;
       case "你好":
       case "Hello":
@@ -47,20 +44,19 @@ bot.on("message", function(event) {
       case "HI":
         event.source.profile().then(function(profile) {
           return event.reply(
-            msg + " " + profile.displayName //+ " " + profile.userId
+            event.message.text + " " + profile.displayName //+ " " + profile.userId
           );
         });
         break;
       case "B":
         break;
       default:
-          event.source.profile().then(function(profile) {
-            return event.reply(
-              "你說啥 " //+ " " + profile.userId
-            );
-          });
+        event.source.profile().then(function(profile) {
+          return event.reply(
+            "你說啥 " //+ " " + profile.userId
+          );
+        });
     }
-    console.log("UserName = " + UserName);
   }
 });
 
