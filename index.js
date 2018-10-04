@@ -14,11 +14,11 @@ bot.on("message", function(event) {
   var msg = event.message.text;
   if ((event.message.type = "text")) {
     switch (event.message.text) {
-      case "嘟嘟":
-      case "阿嘟":
-      case "寧嘟":
-      case "林嘟":
-      case "林都":
+        case "嘟嘟" :
+        case "阿嘟" :
+        case "寧嘟" :
+        case "林嘟" :
+      case "林都" :
         //收到文字訊息時，直接把收到的訊息傳回去
         event
           .reply(event.message.text + "是條豬喔")
@@ -35,12 +35,12 @@ bot.on("message", function(event) {
       case "姪子":
         event.reply(event.message.text + "是猴子");
         break;
-      case "你好":
-      case "Hello":
-      case "hello":
-      case "HELLO":
-      case "Hi":
-      case "hi":
+        case "你好" :
+        case "Hello":
+        case "hello":
+        case "HELLO":
+        case  "Hi":
+        case "hi":
       case "HI":
         event.source.profile().then(function(profile) {
           return event.reply(
@@ -51,11 +51,11 @@ bot.on("message", function(event) {
       case "B":
         break;
       default:
-        event.source.profile().then(function(profile) {
-          return event.reply(
-            "你說啥 " //+ " " + profile.userId
-          );
-        });
+      event.source.profile().then(function(profile) {
+        return event.reply(
+          "你說啥 " //+ " " + profile.userId
+        );
+      });
     }
   }
 });
