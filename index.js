@@ -16,7 +16,7 @@ bot.on("message", function(event) {
     UserName = profile.displayName;
   });
   if ((event.message.type = "text")) {
-    switch (event.message.text) {
+    switch (msg) {
       case "嘟嘟":
       case "阿嘟":
       case "寧嘟":
@@ -24,7 +24,7 @@ bot.on("message", function(event) {
       case "林都":
         //收到文字訊息時，直接把收到的訊息傳回去
         event
-          .reply(event.message.text + "是條豬喔")
+          .reply(msg + "是條豬喔")
           .then(function(data) {
             // 傳送訊息成功時，可在此寫程式碼
             //console.log(msg);
@@ -36,7 +36,7 @@ bot.on("message", function(event) {
           });
         break;
       case "姪子":
-        event.reply(event.message.text + "是猴子");
+        event.reply(msg + "是猴子");
         break;
       case "你好":
       case "Hello":
@@ -47,14 +47,14 @@ bot.on("message", function(event) {
       case "HI":
         event.source.profile().then(function(profile) {
           return event.reply(
-            event.message.text + " " + profile.displayName //+ " " + profile.userId
+            msg + " " + profile.displayName //+ " " + profile.userId
           );
         });
         break;
       case "B":
         break;
       default:
-        if ((event.message.text).indexOf("ABC")) {
+        if (msg.indexOf("ABC")) {
             event.reply("包含ABC");
         } else {
           event.source.profile().then(function(profile) {
