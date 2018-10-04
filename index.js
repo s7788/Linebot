@@ -54,7 +54,7 @@ bot.on("message", function(event) {
       case "B":
         break;
       default:
-        if (event.message.text.indexOf("ABC")) {
+        if ((event.message.text).indexOf("ABC")) {
             event.reply("包含ABC");
         } else {
           event.source.profile().then(function(profile) {
